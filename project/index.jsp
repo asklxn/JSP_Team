@@ -29,7 +29,7 @@
    		left: 0;
       width: 220px;
       height: 260px;
-      background-color: #ede1cb;
+      background-color: #DDDDDD;
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -42,6 +42,7 @@
       height: 180px;
       border-radius: 15px;
       object-fit: cover;
+      border: 1px solid black
     }
     .price {
       font-size: 14px;
@@ -60,7 +61,6 @@
     	position: absolute;
     	bottom: 10px;
     	right: 10px;
-    	background-color: white;
     	border-radius: 10px;
     }
   </style>
