@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nome detail page</title>
+    <link rel="stylesheet" href="common/header.css" />
+    <style>
+      swiper-container {
+        width: 500px;
+        height: 500px;
+        overflow: visible;
+      }
+
+      swiper-slide {
+        background-position: center;
+        background-size: cover;
+        overflow: visible;
+      }
+
+      swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* 활성 상태 */
+      :root {
+        --swiper-pagination-color: #ffffff;
+        --swiper-pagination-bullet-opacity: 1;
+      }
+
+      /* 비활성 상태 */
+      :root {
+        --swiper-pagination-bullet-inactive-color: #ffffff;
+        --swiper-pagination-bullet-inactive-opacity: 0.5;
+      }
+
+      .section_1 {
+        width: 1200px;
+        height: 100vh;
+        margin: 0 auto;
+        padding-top: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: visible;
+      }
+      .item_img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+        border: 2px solid rgba(0, 0, 0, 0.5);
+      }
+      .text_wrap {
+        width: 550px;
+        height: 500px;
+      }
+      .item_text {
+        font-size: 30px;
+        margin-bottom: 5px;
+      }
+      .item_price {
+        font-size: 20px;
+      }
+
+      .line {
+        margin-top: 40px;
+      }
+
+      .item_desc {
+        width: 100%;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .item_wrap {
+        bottom: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 120px;
+        background-color: #dce5ed;
+        margin-top: 120px;
+        padding: 20px;
+      }
+
+      .price_wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .item_text_2 {
+        font-size: 18px;
+      }
+      .count_wrap {
+        width: 100px;
+        height: 27px;
+        border: 1px solid #0b1838;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+        overflow: hidden;
+      }
+      .minus,
+      .plus {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 25px;
+        font-weight: 300;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .item_count {
+        width: 50px;
+        height: 27px;
+        text-align: center;
+        font-size: 14px;
+        border: 1px solid #0b1838;
+        line-height: 27px;
+      }
+      .total {
+        width: 90px;
+        text-align: right;
+        font-size: 14px;
+      }
+      .btn_wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        margin-top: 20px;
+      }
+      .cart_btn,
+      .buy_btn {
+        width: 270px;
+        height: 100%;
+        background-color: #0b1838;
+        color: #fffdf9;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .title {
+        font-size: 35px;
+        text-align: center;
+        margin: 30px;
+      }
+
+      .section_2 {
+        width: 100%;
+        padding: 100px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        onclick="location.href='index.html'"
+        src="images/logo_b.png"
+        alt="로고"
+        class="logo"
+      />
+      <div class="menu_wrap">
+        <div class="menu" onclick="location.href='addItem.html'">ADD MENU</div>
+        <div class="menu" onclick="location.href='login.html'">LOGIN</div>
+        <div class="menu" onclick="location.href='qna.html'">Q&A</div>
+        <div class="menu" onclick="location.href='profile.html'">MY PAGE</div>
+        <div class="menu" onclick="location.href='cart.html'">CART</div>
+      </div>
+    </header>
+
+    <section class="section_1">
+      <swiper-container
+        class="mySwiper"
+        pagination="true"
+        effect="cube"
+        grab-cursor="true"
+        cube-effect-shadow="true"
+        cube-effect-slide-shadows="true"
+        cube-effect-shadow-offset="20"
+        cube-effect-shadow-scale="0.94"
+        loop="true"
+      >
+        <swiper-slide>
+          <img src="images/bg3.png" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="images/bg4.png" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="images/bg5.png" />
+        </swiper-slide>
+      </swiper-container>
+
+      <div class="text_wrap">
+        <!-- 상품명, 가격, 설명 하드코딩 -->
+        <div class="item_text" id="productName">젤리 푸딩</div>
+        <div class="item_price" id="productPrice">7,000원</div>
+
+        <div class="line"></div>
+
+        <div class="item_desc">
+          다크초코베이스의 휘낭시에에 쌉쌀하게 씹히는 카카오닙스, 향긋한
+          오렌지가 기분좋은 과자입니다. 반죽에도 흰구슬 앙금이 들어가 무게감과
+          촉촉함을 도와주고, 초코앙금으로도 다크한 풍미를 더했습니다.
+          @valrhona_kr 에콰토리얼 누아 55% 사용하였습니다.
+        </div>
+
+        <div class="item_wrap">
+          <div class="item_text_2" id="productNameSmall">다크초코 휘낭시에</div>
+          <div class="dash"></div>
+          <div class="price_wrap">
+            <div class="count_wrap">
+              <div class="minus">▼</div>
+              <div class="item_count">1</div>
+              <div class="plus">▲</div>
+            </div>
+            <div class="total" id="productTotal">4,000원</div>
+          </div>
+        </div>
+
+        <div class="btn_wrap">
+          <div class="cart_btn">장바구니</div>
+          <div class="buy_btn">구매하기</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="title">상세페이지</div>
+
+    <section class="section_2">
+      <div class="test">test text</div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nome orderHistory</title>
+    <link rel="stylesheet" href="common/header.css" />
+    <style>
+      .section_1 {
+        width: 100%;
+        height: 100vh;
+        padding: 80px 100px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .title {
+        font-size: 34px;
+        margin-bottom: 40px;
+      }
+
+      #orderList {
+        width: 100%;
+        height: 700px;
+        overflow-y: auto;
+        border-bottom: 1px solid #0b1838;
+        border-top: 1px solid #0b1838;
+      }
+
+      #orderList > :last-child {
+        display: none;
+      }
+      .item_wrap {
+        width: 100%;
+        height: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        font-size: 14px;
+      }
+      .item_day {
+        width: 160px;
+      }
+      .item_img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        margin-right: 20px;
+      }
+      .item_text {
+        width: 150px;
+        margin-right: 500px;
+      }
+      .item_count {
+        width: 50px;
+        margin-right: 100px;
+      }
+      .item_price {
+        width: 100px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        onclick="location.href='index.html'"
+        src="images/logo_b.png"
+        alt="로고"
+        class="logo"
+      />
+      <div class="menu_wrap">
+        <div class="menu" onclick="location.href='addItem.html'">ADD MENU</div>
+        <div class="menu" onclick="location.href='login.html'">LOGIN</div>
+        <div class="menu" onclick="location.href='qna.html'">Q&A</div>
+        <div class="menu" onclick="location.href='profile.html'">MY PAGE</div>
+        <div class="menu" onclick="location.href='cart.html'">CART</div>
+      </div>
+    </header>
+
+    <section class="section_1">
+      <div class="title">ORDER HISTORY</div>
+      <div id="orderList">
+        <div class="item_wrap">
+          <div class="item_day">2025-05-26 15:42</div>
+          <img class="item_img" src="images/bg1.png" alt="상품 A" />
+          <div class="item_text">상품 A</div>
+          <div class="item_count">2개</div>
+          <div class="item_price">30,000원</div>
+        </div>
+        <div class="dash"></div>
+
+        <div class="item_wrap">
+          <div class="item_day">2025-05-26 15:42</div>
+          <img class="item_img" src="images/bg1.png" alt="상품 A" />
+          <div class="item_text">상품 A</div>
+          <div class="item_count">2개</div>
+          <div class="item_price">30,000원</div>
+        </div>
+        <div class="dash"></div>
+
+        <div class="item_wrap">
+          <div class="item_day">2025-05-26 15:42</div>
+          <img class="item_img" src="images/bg1.png" alt="상품 A" />
+          <div class="item_text">상품 A</div>
+          <div class="item_count">2개</div>
+          <div class="item_price">30,000원</div>
+        </div>
+        <div class="dash"></div>
+
+        <div class="item_wrap">
+          <div class="item_day">2025-05-26 15:42</div>
+          <img class="item_img" src="images/bg1.png" alt="상품 A" />
+          <div class="item_text">상품 A</div>
+          <div class="item_count">2개</div>
+          <div class="item_price">30,000원</div>
+        </div>
+        <div class="dash"></div>
+
+        <div class="item_wrap">
+          <div class="item_day">2025-05-26 15:42</div>
+          <img class="item_img" src="images/bg1.png" alt="상품 A" />
+          <div class="item_text">상품 A</div>
+          <div class="item_count">2개</div>
+          <div class="item_price">30,000원</div>
+        </div>
+        <div class="dash"></div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const orders = JSON.parse(
+          localStorage.getItem("orders") || "[]"
+        ).reverse();
+        const orderList = document.getElementById("orderList");
+
+        if (orders.length === 0) {
+          const noData = document.createElement("div");
+          noData.textContent = "주문 내역이 없습니다.";
+          noData.style.fontSize = "20px";
+          noData.style.marginTop = "50px";
+          orderList.appendChild(noData);
+          return;
+        }
+
+        orders.forEach((order) => {
+          const itemWrap = document.createElement("div");
+          itemWrap.className = "item_wrap";
+
+          const day = document.createElement("div");
+          day.className = "item_day";
+          day.textContent = order.date;
+
+          const img = document.createElement("img");
+          img.className = "item_img";
+          img.src = order.imageUrl;
+          img.alt = order.name;
+
+          const name = document.createElement("div");
+          name.className = "item_text";
+          name.textContent = order.name;
+
+          const count = document.createElement("div");
+          count.className = "item_count";
+          count.textContent = order.count + "개";
+
+          const price = document.createElement("div");
+          price.className = "item_price";
+          price.textContent =
+            (order.price * order.count).toLocaleString() + "원";
+
+          const dash = document.createElement("div");
+          count.className = "dash";
+
+          itemWrap.appendChild(day);
+          itemWrap.appendChild(img);
+          itemWrap.appendChild(name);
+          itemWrap.appendChild(count);
+          itemWrap.appendChild(price);
+
+          orderList.appendChild(itemWrap);
+          orderList.appendChild(dash);
+        });
+      });
+    </script>
+  </body>
+</html>

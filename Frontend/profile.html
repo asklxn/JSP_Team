@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="common/header.css" />
+
+    <style>
+      .section_1 {
+        width: 100%;
+        height: 100vh;
+        padding: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+      }
+      swiper-container {
+        position: relative;
+        width: 550px;
+        height: 360px;
+      }
+
+      swiper-slide {
+        width: 100%;
+        height: 100%;
+        box-shadow: 15px 30px 20px rgba(0, 0, 0, 0.3);
+        background-color: #dce5ed;
+        padding: 70px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #0b1838;
+      }
+
+      .profile {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid #0b183880;
+      }
+
+      .id {
+        font-size: 14px;
+      }
+
+      .btn_wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        line-height: 40px;
+      }
+
+      .btn {
+        width: 49%;
+        height: 40px;
+        background-color: #0b1838;
+        color: #fffdf9;
+        font-size: 14px;
+        margin-top: 30px;
+        cursor: pointer;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+        pointer-events: auto;
+      }
+
+      .text_wrap {
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+      }
+
+      .lable {
+        width: 100px;
+        border-right: 0.5px solid #0b1838;
+      }
+
+      .value {
+        padding-left: 20px;
+        width: 100%;
+      }
+
+      @keyframes flip-on-load {
+        0% {
+          transform: rotateY(0deg);
+        }
+        25% {
+          transform: rotateY(-10deg);
+        }
+        50% {
+          transform: rotateY(-20deg);
+        }
+        75% {
+          transform: rotateY(0deg);
+        }
+        85% {
+          transform: rotateY(3deg);
+        }
+        100% {
+          transform: rotateY(0deg);
+        }
+      }
+
+      .swiper-animate {
+        animation: flip-on-load 0.8s linear;
+        backface-visibility: hidden;
+        will-change: transform;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img
+        onclick="location.href='index.html'"
+        src="images/logo_b.png"
+        alt="로고"
+        class="logo"
+      />
+      <div class="menu_wrap">
+        <div class="menu" onclick="location.href='addItem.html'">ADD MENU</div>
+        <div class="menu" onclick="location.href='login.html'">LOGIN</div>
+        <div class="menu" onclick="location.href='qna.html'">Q&A</div>
+        <div class="menu" onclick="location.href='profile.html'">MY PAGE</div>
+        <div class="menu" onclick="location.href='cart.html'">CART</div>
+      </div>
+    </header>
+
+    <section class="section_1">
+      <swiper-container
+        class="mySwiper"
+        effect="flip"
+        grab-cursor="true"
+        loop="true"
+      >
+        <swiper-slide>
+          <img src="images/profile.jpg" alt="" class="profile" />
+          <div class="id">user id</div>
+          <div class="btn_wrap">
+            <div
+              class="btn orderHistory_btn"
+              onclick="location.href='orderHistory.html'"
+            >
+              주문내역
+            </div>
+            <div class="btn logout_btn">로그아웃</div>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide>
+          <div class="text_wrap">
+            <div class="lable">이름</div>
+            <div class="value">이예진</div>
+          </div>
+
+          <div class="text_wrap">
+            <div class="lable">아이디</div>
+            <div class="value">yejin</div>
+          </div>
+
+          <div class="text_wrap">
+            <div class="lable">생년월일</div>
+            <div class="value">051102</div>
+          </div>
+
+          <div class="text_wrap">
+            <div class="lable">전화번호</div>
+            <div class="value">01012345678</div>
+          </div>
+
+          <div class="text_wrap">
+            <div class="lable">주소</div>
+            <div class="value">
+              부산광역시 부산진구 양지로 54 동의과학대학교
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const swipers = document.querySelectorAll("swiper-container");
+
+        swipers.forEach((swiper) => {
+          function runAnimation() {
+            swiper.classList.add("swiper-animate");
+            swiper.addEventListener(
+              "animationend",
+              () => {
+                swiper.classList.remove("swiper-animate");
+              },
+              { once: true }
+            );
+          }
+
+          setTimeout(runAnimation, 500);
+        });
+      });
+    </script>
+  </body>
+</html>
