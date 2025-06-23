@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: 'amoria-font';
+        src: url('../font/AMORIA.otf') format('opentype');
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+      .amoria-font{
+        font-family: 'amoria-font';
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Nanum Myeongjo", serif;
+        font-weight: 400;
+        font-style: normal;
+        background-color: #fffdf9;
+        color: #3c2c23;
+        user-select: none;
+      }
+
+      header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+      }
+
+      header img.logo {
+        width: 100px;
+        cursor: pointer;
+      }
+
+      .menu_wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .menu_wrap div {
+        margin-left: 30px;
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+        transition: color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .menu_wrap div:hover {
+        color: #e34648;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img onclick="location.href='index.html'" src="images/logo_b.png" alt="로고" class="logo" />
+      <div class="menu_wrap">
+        <div class="menu" onclick="location.href='addItem.html'">상품 추가</div>
+          <div class="menu" onclick="location.href='login.html'">로그인</div>
+          <div class="menu" onclick="location.href='qna.html'">Q&A</div>
+          <div class="menu" onclick="location.href='profile.html'">마이페이지</div>
+          <div class="menu" onclick="location.href='cart.html'">장바구니</div>
+      </div>
+    </header>
+</html>

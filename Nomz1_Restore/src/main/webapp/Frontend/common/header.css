@@ -1,0 +1,41 @@
+@import url(common.css);
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #fffdf9;
+  border-bottom: 1px solid #ccc;
+}
+
+/* 로고 이미지 */
+.logo {
+  height: 40px;
+  cursor: pointer;
+}
+
+/* 메뉴 전체 래퍼 */
+.menu_wrap {
+  display: flex; /* ✅ 추가 */
+  gap: 30px;
+}
+
+/* 각각의 메뉴 */
+.menu {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0b1838;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.menu:hover {
+  color: #4a6fa5; /* ✅ 세미콜론 닫기 */
+}
+
+input::placeholder {
+  color: #888;   /* 회색으로 표시 */
+  font-size: 12px;
+}
+
